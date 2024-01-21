@@ -30,7 +30,18 @@ public class EnergyManager {
             if (component instanceof Battery) {
                 totalCapacity += ((Battery) component).getCapacity();
             }
+
         }
         return totalCapacity;
+    }
+    // Additional method to calculate total generated and consumed power
+    public int calculateTotalGeneratedPower() {
+        int totalGeneratedPower = 0;
+        for (Component component : components) {
+            if (component instanceof SolarPanel) {
+                totalGeneratedPower += ((SolarPanel) component).generatePower();
+            }
+        }
+        return totalGeneratedPower;
     }
 }
